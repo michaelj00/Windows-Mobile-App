@@ -1,0 +1,15 @@
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bin\Debug\ReverseMap\resources.pri
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bin\Debug\AppxManifest.xml
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bin\Debug\CorvReUse.build.appxrecipe
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\priconfig.xml
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\priconfig.xml.intermediate
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\layout.resfiles
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\layout.resfiles.intermediate
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\resources.resfiles
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\resources.resfiles.intermediate
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\pri.resfiles
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\pri.resfiles.intermediate
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\qualifiers.txt
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\qualifiers.txt.intermediate
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\DavidG\Documents\OSU Work\CS 419 Software Projects\cs419recycles\App - David\CorvReUse\bld\Debug\ProjectArchitectures.txt

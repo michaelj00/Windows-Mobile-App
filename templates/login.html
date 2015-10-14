@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin LogIn</title>
+  </head>
+  	<body>
+	  	<div class="header" id="top">
+	 		<div class="container">
+				<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				<div class="main">
+					<form action="/v.1.0/auth" method="POST">
+						<fieldset style="margin-top:1em;margin-bottom:1em">
+							<legend>Authenticate</legend>
+							<input type="hidden" name="action" value="attempt_login">
+							<div style="margin-bottom:1em"><label>Username: </label><input type="text" name="user_name"></div>
+							<div style="margin-top:1em;margin-bottom:1em"><label>Password:  </label><input type="password" name="password"><br></div>
+							<input type="submit" value="Submit">
+						</fieldset>
+					</form>
+
+					{% if error %}
+					<section>
+						<h3>Error</h3>
+						<p style="color:red">{{ error }}
+					</section>
+					{% endif %}
+					{% if message %}
+					<section>
+
+						<p style="color:green">{{ message }}
+					</section>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+  	</body> 
+</html>

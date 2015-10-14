@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- WinJS references -->
+    <script type="text/javascript" src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script type="text/javascript" src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+    <!-- <script src="page3.js"></script> -->
+
+    <script type="text/javascript"
+            src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+    <script type="text/javascript">
+
+        /*
+            GetMapBing()
+            Function used if maps desired are Microsoft Bing Maps.
+            Change line 89 <body onload="GetMapBing();">
+        */
+
+        function GetMapBing() {
+
+            // URL to iframe submits the latitude and long needed
+            // Must parse out.
+            ///   http://stackoverflow.com/questions/2625615/passing-in-javascript-values-into-iframe-tag
+            var seed = window.location.search.substring(window.location.search.indexOf('seed='));
+
+            var seedRemoved = seed.slice(5);
+
+            var split_seed_on_and = seedRemoved.split("&");
+            var latitude = parseFloat(split_seed_on_and[0], 10).toFixed(10);
+            var longitude = parseFloat(split_seed_on_and[1], 10).toFixed(10);
+
+
+	        // Initialize the map
+	        var map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),
+                       { credentials: "AuPSFUReM3dHHMQetO1Ihgay-MId3sqYtRLPW0RIPTBVhdu2XtqYztRNUjXsAJro" });
+
+	        // Define the pushpin location
+	        var loc = new Microsoft.Maps.Location(latitude, longitude); //(32.700839, -97.185569);
+
+	        // Add a pin to the map
+	        var pin = new Microsoft.Maps.Pushpin(loc);
+	        map.entities.push(pin);
+
+	        // Center the map on the location
+	        map.setView({ center: loc, zoom: 14 });
+        }
+
+        /*
+            GetMapGoogle()
+            Function used if maps desired are Google Maps.
+            Change line 89 <body onload="GetMapGoogle();">
+        */
+        function GetMapGoogle()
+        {
+            ///   http://stackoverflow.com/questions/2625615/passing-in-javascript-values-into-iframe-tag
+            var seed = window.location.search.substring(window.location.search.indexOf('seed='));
+
+            var seedRemoved = seed.slice(5);
+
+            var split_seed_on_and = seedRemoved.split("&");
+            var latitude = parseFloat(split_seed_on_and[0], 10).toFixed(10);
+            var longitude = parseFloat(split_seed_on_and[1], 10).toFixed(10);
+
+
+            var myLatlng = new google.maps.LatLng(latitude, longitude);
+                var mapOptions = {
+                    zoom: 14,
+                    center: myLatlng
+                }
+                var map = new google.maps.Map(document.getElementById('mapDiv'), mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+
+                });
+        }
+
+    </script>
+</head>
+<body onload="GetMapGoogle();">
+    <div id='mapDiv' style="position:relative; width:100%; height:500px;">
+
+    </div>
+</body>
+</html>

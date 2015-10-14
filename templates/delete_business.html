@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin</title>
+  </head>
+  <body>
+ 	<div class="header" id="top">
+ 		<div class="container">
+			<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+		</div>
+	</div>
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li style="color:orange">Edit: </li>
+				<li><a href="/v.1.0/list_business">Businesses</a></li>
+				<li><a href="/v.1.0/list_category">Categories</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				{% if Business %}
+				<h2><span style="color:red">Delete: </span>{{ Business.bus_name }}</h2>
+				<form action="/v.1.0/list_business" method="POST">
+					<input type="hidden" name="action" value="sure_delete">
+					<input type="hidden" name="bus_name" value="{{ Business.bus_name }}">
+					<input class="btn" type="submit" value="Yes, I'm Sure">					
+				</form>
+				<form action="/v.1.0/list_business/{{ Business.bus_name }}" method="GET">
+					<input type="hidden" name="bus_name" value="{{ Business.bus_name }}">
+					<input class="btn" type="submit" value="NO! Go Back">
+				</form>
+				{% endif %}
+
+	{% if error %}
+	<section>
+		<h3>Error</h3>
+		<p style="color:red">{{ error }}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+
+		<p style="color:green">{{ message }}
+	</section>
+	{% endif %}
+			</div>
+		</div>
+	</div>		
+  </body> 
+</html>

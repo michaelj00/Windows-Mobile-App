@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin</title>
+  </head>
+  <body>
+ 	<div class="header" id="top">
+ 		<div class="container">
+			<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+		</div>
+	</div>
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li style="color:orange">Edit: </li>
+				<li><a href="/v.1.0/list_business">Businesses</a></li>
+				<li><a href="/v.1.0/list_category">Categories</a></li>
+				<li style="float:right"><form action="/v.1.0/auth" method="POST">
+					<input type="hidden" name="action" value="log_out">
+					<input style="background: black" class="btn" type="submit" value="Log Out">
+				</form></li>
+			</ul>
+				
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				<h2>Welcome!</h2>
+				<h3 style="color:#666633">Choose a link above</h3>
+				<img src="/images/corvallis.jpg">
+
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+			</div>
+		</div>
+	</div>		
+  </body> 
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin</title>
+  </head>
+  <body>
+ 	<div class="header" id="top">
+ 		<div class="container">
+			<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+		</div>
+	</div>
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li style="color:orange">Edit: </li>
+				<li><a href="/v.1.0/list_business">Businesses</a></li>
+				<li><a href="/v.1.0/list_category">Categories</a></li>
+				<li style="float:right"><form action="/v.1.0/auth" method="POST">
+				<input type="hidden" name="action" value="log_out">
+				<input style="background: black" class="btn" type="submit" value="Log Out">
+				</form></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="main">				
+				{% if special_message %}
+				<section>
+					<p style="color:blue">{{ special_message }}
+				</section>
+				{% endif %}
+				<div style="float:right"><form action="/v.1.0/list_business" method="POST">
+					<input type="hidden" name="action" value="delete_business">
+					<input type="hidden" name="bus_name" value="{{ Business.bus_name }}">
+					<input class="btn" type="submit" value="Delete Business">
+				</form></div>
+				{% if Business %}
+				<form action="/v.1.0/list_business" method="POST">
+					<input class="btn" type="submit" value="Update">
+				<h2>{{ Business.bus_name }}</h2>
+
+					<input type="hidden" name="action" value="update_business">
+					<input type="hidden" name="bus_name" value="{{ Business.bus_name }}">
+					<p><label>Phone: </label><input type="text" name="bus_phone" style="width:100px" value="{{ Business.bus_phone }}"></p>
+					<p><label>Address: </label><input type="text" name="bus_address" style="width:300px"value="{{ Business.bus_address }}"><br><span style="color:blue"></p>
+					{% if Geo_error %}
+					
+						<p style="color:red">{{ Geo_error }}
+					<p><label>Latitude Decimal Degrees: </label><input type="text" name="bus_lat" style="width:100px" value="{{ Business.bus_lat }}"></p>
+					<p><label>Longitude Decimal Degrees: </label><input type="text" name="bus_long" style="width:100px" value="{{ Business.bus_long }}"></p>
+					<p><label>To find decimal degrees of address use this link </label><a href="http://www.prodraw.net/online-tool/latitude-longitude-converter.php" target="_blank">ProDraw Lat and Long</a>
+					
+					{% endif %}</p>
+					<p><span style="color:#996600">***  http:// is required  ***
+					<br><strong>Example: </strong>http://www.example.com</span>
+					<br><label>Website: </label><input type="text" name="bus_url" style="width:300px" value="{{ Business.bus_url }}">
+					{% if url_error %}
+					
+						<p style="color:red">{{ url_error }}
+					
+					{% endif %}</p> 
+
+					<p><label>Days Open: </label><input type="text" name="bus_days" style="width:100px" value="{{ Business.bus_days }}"></p>
+					<p><label>Hours of Operation: </label><input type="text" name="bus_hours" style="width:100px" value="{{ Business.bus_hours }}"></p>
+
+					<p><table><thead><th>Categories</th><th>Link</th></thead>
+					{% if Cats %}
+						<tbody>
+							{% for c in Cats %}
+							<tr><td>{{ c.name }}</td><td><input type="checkbox" name="categories" value="{{ c.name }}" {% for m in MyCats %} {% if c.name == m %} checked {% endif %} {% endfor %}></td></tr>
+							{% endfor %}
+						</tbody>
+					{% endif %}
+					</table></p>			
+				</form>
+
+				{% endif %}
+
+	{% if error %}
+	<section>
+		<h3>Error</h3>
+		<p style="color:red">{{ error }}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+
+		<p style="color:green">{{ message }}
+	</section>
+	{% endif %}
+			</div>
+		</div>
+	</div>		
+  </body> 
+</html>

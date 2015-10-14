@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin</title>
+  </head>
+  <body>
+ 	<div class="header" id="top">
+ 		<div class="container">
+			<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+		</div>
+	</div>
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li style="color:orange">Edit: </li>
+				<li><a href="/v.1.0/list_business">Businesses</a></li>
+				<li><a href="/v.1.0/list_category">Categories</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				<form action="/v.1.0/list_category" method="POST">
+				<input type="hidden" name="action" value="add_category">
+				<input class="btn" type="submit" value="Add Category!">
+				<h2>Add A Category</h2>
+				<div style="margin-top:1em;margin-bottom:1em">					
+				<label>Category Name: <input type="text" name="category_name">
+					{% if name_error %}
+					<section>
+						<h3>Error</h3>
+						<p style="color:red">{{ name_error }}
+					</section>
+					{% endif %}
+				</div>		
+				<div><table style="float:left"><thead><th>Add Items (You can add more later)</th><th></th></thead>
+					
+					<tbody>
+					<tr><td><input type="text" name="new_item1"</td><td></td></tr>
+					<tr><td><input type="text" name="new_item2"</td><td></td></tr>
+					<tr><td><input type="text" name="new_item3"</td><td></td></tr>
+					<tr><td><input type="text" name="new_item4"</td><td></td></tr>
+					</tbody>
+					</table>
+					<table style="float:left"><thead><th>Businesses</th><th>Link</th></thead>
+					{% if Businesses %}
+					<tbody>{% for b in Businesses %}
+					<tr><td>{{ b }}</td><td><input type="checkbox" name="businesses" value="{{ b }}" {% for m in MyBusinesses %} {% if b == m %} checked {% endif %} {% endfor %}></td></tr>
+					{% endfor %}
+					</tbody>
+					{% endif %}
+					</table>
+				</div>
+				
+				</form>
+
+	{% if error %}
+	<section><br><br><br><br><br>
+		<h3>Error</h3>
+		<p style="color:red">{{ error }}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+
+		<p style="color:green">{{ message }}
+	</section>
+	{% endif %}
+			</div>
+		</div>
+	</div>		
+  </body> 
+</html>

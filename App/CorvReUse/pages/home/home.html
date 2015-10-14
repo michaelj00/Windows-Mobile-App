@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/home/home.css" rel="stylesheet" />
+    <script src="/pages/home/home.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="fragment homepage" style="overflow:scroll">
+        <header aria-label="header content" role="banner">
+            <h2 class="titlearea win-type-ellipsis">
+                <span>Corvallis-Area<br />ReUse Directory</span>
+            </h2>
+        </header>
+        <section aria-label="Main content" role="main">
+            <br />
+            <p>Have something you don't need?</p>
+            <p>Don't want to throw it away?</p>
+            <p>Welcome to the Corvallis Reuse and Repair Directory!</p>
+            <!-- A hyperlink to page2.html.
+                To setup nav only classes. Prevents external link from following WinJS.nav
+                http://stackoverflow.com/questions/16449306/external-link-in-winjs-iframe-or-not-doesnt-matter-->
+            <button id="Go_page1" value="Go to Directory">Go to Directory</button>
+
+
+            <br />
+            <p><a href="http://site.republicservices.com/site/corvallis-or/en/documents/corvallisrecycledepot.pdf">What Republic Recycling accepts</a></p>
+            <p><a href="http://site.republicservices.com/site/corvallis-or/en/documents/detailedrecyclingguide.pdf">What Republic Recycling takes in curbside containers</a></p>
+
+
+
+        </section>
+    </div>
+</body>
+</html>

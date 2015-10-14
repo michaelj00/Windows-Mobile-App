@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Changes Michael line 44 c.url_name -->
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset='utf=8'>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css">
+	<title>Corvallis Reuse Admin</title>
+  </head>
+  <body>
+ 	<div class="header" id="top">
+ 		<div class="container">
+			<h1 class="header-heading">Corvallis Reuse Application Admin</h1>
+		</div>
+	</div>
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li style="color:orange">Edit: </li>
+				<li><a href="/v.1.0/list_business">Businesses</a></li>
+				<li><a href="/v.1.0/list_category">Categories</a></li>
+				<li style="float:right"><form action="/v.1.0/auth" method="POST">
+				<input type="hidden" name="action" value="log_out">
+				<input style="background: black" class="btn" type="submit" value="Log Out">
+				</form></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				{% if special_message %}
+				<section>
+					<p style="color:blue">{{ special_message }}
+				</section>
+				{% endif %}
+				<h2>Current Businesses</h2>
+				<div><form action="/v.1.0/list_business" method="POST">
+					<input type="hidden" name="action" value="add_page">
+					<input class="btn" type="submit" value="Add A Business">					
+				</form></div>
+				<table class="table">
+					<thead>
+						<tr><th>Name</th><th>Phone Number</th><th>Address</th><th>Website</th><th>Days</th><th>Hours</th></tr>
+					</thead>
+					<tbody>
+						{% for b in Businesses %}		
+							<tr>
+								<td><a href="/v.1.0/list_business/{{ b.url_bname }}">{{ b.bname }}</a></td>
+								<td>{{ b.bphone }}</td>
+								<td>{{ b.baddress }}</td>
+								<td>{{ b.burl }}</td>
+								<td>{{ b.bdays }}</td>
+								<td>{{ b.bhours }}</td>
+							</tr>
+						</form>	
+						{% endfor %}
+					</tbody>
+				</table>
+	{% if error %}
+	<section>
+		<h3>Error</h3>
+		<p style="color:red">{{ error }}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+		<p style="color:green">{{ message }}
+	</section>
+	{% endif %}
+			</div>
+		</div>
+	</div>		
+  </body> 
+</html>

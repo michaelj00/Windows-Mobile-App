@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset='utf=8'>
+	<title>Edit Cereal</title>
+  </head>
+  <body>
+
+	<form action="{{ edit_url }}" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="key" value="{{ Cereal.key.urlsafe() }}">
+		<fieldset>
+		<label>Cereal Name: </label><input type="text" name="cereal-name" value="{{ Cereal.name }}"><br>
+			<label>Cereal Type: </label><br><input type="radio" name="cereal-type" value="flakes" {% if Cereal.type == 'flakes' %}checked {% endif %}>Flakes<br>
+			<input type="radio" name="cereal-type" value="loops" {% if Cereal.type == 'loops' %}checked {% endif %}>Loops<br>
+			<input type="radio" name="cereal-type" value="puffs" {% if Cereal.type == 'puffs' %}checked {% endif %}>Puffs<br>
+			<input type="radio" name="cereal-type" value="marbits" {% if Cereal.type == 'marbits' %}checked {% endif %}>Marshmallows<br>
+			<input type="radio" name="cereal-type" value="other" {% if Cereal.type == 'other' %}checked {% endif %}>Other<br>
+			<label>Favorite? </label>{% if Cereal.fav == True %}<input type="checkbox" name="favorite" 
+			checked={{ Cereal.fav }}> {% endif %}{% if Cereal.fav != True %}<input type="checkbox" name="favorite"> {% endif %}><br>
+			<label>Boxes Eaten: </label><input type="number" name="boxes" value="{{ Cereal.num }}" min="0" step="1"><br>
+			<label>Last Eaten: </label><input type="date" name="date" value="{{ Cereal.date }}"><br>
+			<input type="submit" value="Update">
+		</fieldset>
+	</form>
+	<section>
+		<h2>Edit Cereal</h2>
+		{% for c in Cereals %}
+		<a href='/edit?key={{ c.key }}&type=cereal'>{{ c.name }}</a>
+		{% endfor %}
+	</section>
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+  </body> 
+</html>
